@@ -1,7 +1,8 @@
 #!/bin/bash
 
 export GIT_REPOSITORY__URL="$GIT_REPOSITORY__URL"
-
+echo "Environment variable GIT_REPOSITORY__URL is set to: $GIT_REPOSITORY__URL"
+echo "Starting the build server..."
 echo "Starting git clone from: $GIT_REPOSITORY__URL"
 
 if [ -z "$GIT_REPOSITORY__URL" ]; then
