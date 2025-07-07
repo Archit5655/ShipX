@@ -4,13 +4,15 @@ const { eq } = require("drizzle-orm");
 const ecsClient = require("../services/ecs");
 const { config } = require("../config");
 const { db } = require("../lib/db");
+
 const { project } = require("../lib/schema");
+
 
 const healthCheck = (req, res) => {
   res.json({ status: "healthy", timestamp: new Date().toISOString() });
 };
 
-const debugEcs = async (req, res) => {
+const debugEcs = async (req, res) => {fsdaf
   try {
     const testCommand = {
       cluster: config.ECS.CLUSTER,
