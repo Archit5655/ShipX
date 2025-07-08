@@ -1,9 +1,9 @@
 const requiredEnvVars = [
   'REDIS_KEY',
   'S3_BUCKET',
-  'S3_ACCESS_KEY',
-  'S3_SECRET_ACCESS_KEY',
-  'S3_REGION',
+  'ACCESS_KEY',
+  'SECRET_ACCESS_KEY',
+  'REGION',
   'CORS_ORIGIN',
   'AWS_SUBNETS',
   'AWS_SECURITY_GROUPS'

@@ -1,17 +1,16 @@
 const express = require("express");
 const httpProxy = require("http-proxy");
 const PORT = 8000;
-const somethig =require("somethign"); /*  Error not caught by vscode */ 
 
 const app = express();
 
+
 const BASE_PATH = `https://shipx5655.s3.ap-south-1.amazonaws.com/__outputs`;
-
-
+      
 const proxy = httpProxy.createProxy();
 
 app.use((req, res) => {
-  const hostname = req.hostname;
+  const hostname = req.hostname;   
   const subdomain = hostname.split(".")[0];
 
   const resolvesTo = `${BASE_PATH}/${subdomain}`;

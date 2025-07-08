@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const { createServer } = require("http");
-require("dotenv").config();
+require("dotenv").config()
+ 
 
 const { config, validateEnv } = require("./config");
 const { initializeSocket } = require("./services/socket");
