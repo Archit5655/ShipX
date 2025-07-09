@@ -38,7 +38,10 @@ export const config = {
 // Environment variable validation
 export const validateEnv = () => {
   const missingEnvVars = requiredEnvVars.filter(
-    (envVar) => !process.env[envVar]
+    (envVar) => {
+      console.log(`Checking ${envVar}:`, process.env[envVar]);
+      !process.env[envVar]
+    }
   );
   if (missingEnvVars.length > 0) {
     console.error(

@@ -7,12 +7,11 @@ const { db } = require("../lib/db");
 
 const { project } = require("../lib/schema");
 
-
 const healthCheck = (req, res) => {
   res.json({ status: "healthy", timestamp: new Date().toISOString() });
 };
 
-const debugEcs = async (req, res) => {fsdaf
+const debugEcs = async (req, res) => {
   try {
     const testCommand = {
       cluster: config.ECS.CLUSTER,
@@ -82,7 +81,8 @@ const createProject = async (req, res) => {
       cluster: config.ECS.CLUSTER,
       taskDefinition: config.ECS.TASK,
       launchType: "FARGATE",
-      count: 1,      networkConfiguration: {
+      count: 1,
+      networkConfiguration: {
         awsvpcConfiguration: {
           assignPublicIp: "ENABLED",
           subnets: config.AWS.SUBNETS,
@@ -192,14 +192,14 @@ const createProject = async (req, res) => {
 const getAllProjects = async (req, res) => {
   try {
     const { userId } = req.query;
-    
+
     // Validate that userId is provided
     if (!userId || typeof userId !== "string" || userId.trim() === "") {
       return res.status(400).json({
         status: "error",
         message: "userId is required to fetch projects",
       });
-    }    
+    }
     // Always filter by userId - never fetch all projects from all users
     const projects = await db
       .select()
