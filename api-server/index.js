@@ -25,4 +25,4 @@ initializeSocket(httpServer);
 
 httpServer.listen(config.PORT, () => {
   console.log(`Server and Socket.IO running on http://localhost:${config.PORT}`);
-});
+}); 
