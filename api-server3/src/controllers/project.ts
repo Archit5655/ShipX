@@ -18,12 +18,10 @@ export const createProject = async (c: Context) => {
   }
   try {
     const command = ContainerSpinCommnad(GitRepoUrl, projectSlug);
-    // console.log("Command to be sent:", command);
-    console.log(ecsClient)
     await ecsClient.send(command);
   } catch (error) {
-    console.log("error bhenchod",error);
-    return c.json({"message": "Failed to create project", "error": error}, 500);
+    console.log("error bhenchod", error);
+    return c.json({ message: "Failed to create project", error: error }, 500);
   }
   return c.json(
     {

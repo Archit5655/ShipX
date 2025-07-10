@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import { validateEnv } from "./config/config.js";
 import { cors } from "hono/cors";
 import { Server } from "socket.io";
+import type { Server as HTTPServer } from "node:http";
+import { initRedisSubscribe } from "./services/redis.subscribe.js";
 const app = new Hono();
 app.use(
   cors({
@@ -14,20 +16,31 @@ app.use(
 );
 validateEnv();
 const PORT: number = parseInt(process.env.PORT!);
-// const SOCKET_PORT: number = parseInt(process.env.SOCKET_PORT!);
 // This route will work on /api/v1/project
 app.route("/api/v1", ProjectRoutes);
 app.get("/", (c) => {
   return c.text("Hello Hono!");
 });
+const io = new Server(9001, {
+  cors: {
+    origin: "*",
+  },
+});
+io.on("connection", (socket) => {
+  socket.on("subscribe", (channel) => {
+    socket.join(channel);
+    socket.emit("message", `Subscribed to ${channel}`);
+  });
+});
 
-serve(
+initRedisSubscribe(io);
+
+const httpserver = serve(
   {
     fetch: app.fetch,
     port: PORT,
   },
-  (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`);
+  () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
   }
 );
-// Socket.io setup

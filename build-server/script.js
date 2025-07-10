@@ -47,7 +47,6 @@ async function init() {
     // Close connections and exit with error
     await publisher.quit();
     process.exit(1);
-    return;
   }
 
   const p = exec(`cd ${outDirPath} && npm install && npm run build`);
