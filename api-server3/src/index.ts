@@ -6,18 +6,15 @@ import dotenv from "dotenv";
 import { validateEnv } from "./config/config.js";
 import { cors } from "hono/cors";
 
-
 const app = new Hono();
-app.use(cors())
-validateEnv()
+app.use(cors());
+validateEnv();
 
 // This route will work on /api/v1/project
-app.route("/api/v1",ProjectRoutes)
+app.route("/api/v1", ProjectRoutes);
 app.get("/", (c) => {
   return c.text("Hello Hono!");
 });
-
-
 
 serve(
   {

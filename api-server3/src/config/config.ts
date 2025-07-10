@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 const requiredEnvVars = [
   "REDIS_KEY",
   "S3_BUCKET",
@@ -22,6 +24,7 @@ export const config = {
   ECS: {
     CLUSTER: process.env.ECS_CLUSTER,
     TASK: process.env.ECS_TASK,
+    IMAGE_NAME: process.env.CONTAINER_IMAGE_NAME,
   },
   AWS: {
     REGION: process.env.REGION,
@@ -37,12 +40,10 @@ export const config = {
 
 // Environment variable validation
 export const validateEnv = () => {
-  const missingEnvVars = requiredEnvVars.filter(
-    (envVar) => {
-      console.log(`Checking ${envVar}:`, process.env[envVar]);
-      !process.env[envVar]
-    }
-  );
+  const missingEnvVars = requiredEnvVars.filter((envVar) => {
+    console;
+    !process.env[envVar];
+  });
   if (missingEnvVars.length > 0) {
     console.error(
       "Missing required environment variables:",

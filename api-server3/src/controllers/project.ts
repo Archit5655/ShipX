@@ -7,7 +7,7 @@ export const createProject = async (c: Context) => {
   const body = await c.req.json();
   const projectSlug = generateSlug();
   const { GitRepoUrl } = body;
-  
+
   // prettier-ignore
   if (!GitRepoUrl ||typeof GitRepoUrl !== "string" ||GitRepoUrl.trim() === "") {
     return c.json({
@@ -19,6 +19,7 @@ export const createProject = async (c: Context) => {
   try {
     const command = ContainerSpinCommnad(GitRepoUrl, projectSlug);
     // console.log("Command to be sent:", command);
+    console.log(ecsClient)
     await ecsClient.send(command);
   } catch (error) {
     console.log("error bhenchod",error);
@@ -29,7 +30,7 @@ export const createProject = async (c: Context) => {
       status: "queued",
       message: "Project creation has been queued",
       projectSlug: projectSlug,
-      url: `http://${projectSlug}.localhost:5000`,
+      url: `http://${projectSlug}.localhost:8000`,
     },
     201
   );
