@@ -1,10 +1,7 @@
 const express = require("express");
 const httpProxy = require("http-proxy");
 const PORT = 8000;
-
 const app = express();
-
-
 const BASE_PATH = `https://shipx5655.s3.ap-south-1.amazonaws.com/__outputs`;
       
 const proxy = httpProxy.createProxy();
