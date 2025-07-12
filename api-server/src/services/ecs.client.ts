@@ -1,5 +1,5 @@
 import { ECSClient, RunTaskCommand } from "@aws-sdk/client-ecs";
-import { config } from "../config/config.js";
+import { config } from "../config/env.config.js";
 export const ecsClient = new ECSClient({
   region: config.AWS.REGION,
   credentials: {

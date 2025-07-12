@@ -3,10 +3,9 @@ dotenv.config();
 import { Hono } from "hono";
 import ProjectRoutes from "./routes/route.js";
 import dotenv from "dotenv";
-import { validateEnv } from "./config/config.js";
+import { validateEnv } from "./config/env.config.js";
 import { cors } from "hono/cors";
 import { Server } from "socket.io";
-import type { Server as HTTPServer } from "node:http";
 import { initRedisSubscribe } from "./services/redis.subscribe.js";
 const app = new Hono();
 app.use(
