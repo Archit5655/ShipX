@@ -36,4 +36,13 @@ model Deployments {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   project   Project  @relation(fields: [projectId], references: [id])
+  Lofgs      Logs[]
+}
+model Logs{
+  id          String   @id @default(uuid())
+  deploymentId String
+  message     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deployment Deployments @relation(fields: [deploymentId], references: [id])
 }
