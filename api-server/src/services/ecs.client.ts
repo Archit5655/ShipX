@@ -27,11 +27,13 @@ export const ContainerSpinCommnad = (GitRepoUrl: string, projectID: string) => {
           environment: [
             { name: "GIT_REPOSITORY__URL", value: GitRepoUrl.trim() },
             { name: "PROJECT_ID", value: projectID },
-            { name: "S3_BUCKET", value: config.AWS.S3_BUCKET },
+            { name: "S3_BUCKET", value: config.AWS.S3_BUCKET },  
             { name: "S3_ACCESS_KEY", value: config.AWS.ACCESS_KEY },
             {
               name: "S3_SECRET_ACCESS_KEY",
+
               value: config.AWS.SECRET_ACCESS_KEY,
+        
             },
             { name: "S3_REGION", value: config.AWS.REGION },
             { name: "REDIS_KEY", value: config.REDIS_KEY },
