@@ -5,6 +5,7 @@ export default function Home() {
       <h1 className=" font-sans ">Sans</h1>
       <h1 className=" font-serif text-3xl ">SansSerif</h1>
       <h1 className=" font-serif text-3x  ">SansSerif</h1>
+      <h1 className=" font-serif text-3x  ">SansSerif</h1>
       
     </div>
   );
