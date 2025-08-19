@@ -1,12 +1,15 @@
+import Button from "@/components/Button";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <h1 className=" font-sans ">Sans</h1>
-      <h1 className=" font-serif text-3xl ">SansSerif</h1>
-      <h1 className=" font-serif text-3x  ">SansSerif</h1>
-      <h1 className=" font-serif text-3x  ">SansSerif</h1>
-      
-    </div>
+    <>
+      <div className=" flex flex-col items-center justify-center min-h-screen bg-yellow-500">
+
+<div className="w-80  absolute bottom-[-200px] h-80 rounded-full bg-[radial-gradient(circle,rgba(38,139,221,0.8)_0%,rgba(38,139,221,0)_100%)]" />
+        Hello
+
+        {/* <Button /> */}
+      </div>
+    </>
   );
 }
