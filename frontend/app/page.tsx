@@ -7,6 +7,7 @@ export default function Home() {
         <div className="w-80 h-80 rounded-full absolute bottom-[-100px] bg-[radial-gradient(circle,rgba(38,139,221,0.8)_0%,rgba(38,139,221,0)_100%)]" />
         Hello
         <Button />
+        <ButtonGradient/>
       </div>
     </>
   );
